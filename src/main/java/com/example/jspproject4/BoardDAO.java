@@ -15,11 +15,11 @@ public class BoardDAO {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 
-	private final String BOARD_INSERT = "insert into BOARD (title, writer, content) values (?,?,?)";
-	private final String BOARD_UPDATE = "update BOARD set title=?, writer=?, content=? where seq=?";
-	private final String BOARD_DELETE = "delete from BOARD  where seq=?";
-	private final String BOARD_GET = "select * from BOARD  where seq=?";
-	private final String BOARD_LIST = "select * from BOARD order by seq desc";
+	private final String BOARD_INSERT = "insert into BOARD2 (title, writer, content) values (?,?,?)";
+	private final String BOARD_UPDATE = "update BOARD2 set title=?, writer=?, content=? where seq=?";
+	private final String BOARD_DELETE = "delete from BOARD2  where seq=?";
+	private final String BOARD_GET = "select * from BOARD2  where seq=?";
+	private final String BOARD_LIST = "select * from BOARD2 order by seq desc";
 
 	public int insertBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
@@ -105,8 +105,7 @@ public class BoardDAO {
 				one.setTitle(rs.getString("title"));
 				one.setWriter(rs.getString("writer"));
 				one.setContent(rs.getString("content"));
-				one.setRegdate(rs.getDate("regdate"));
-				one.setCnt(rs.getInt("cnt"));
+				one.setRegdate(rs.getDate("regDate"));
 				list.add(one);
 			}
 			rs.close();
